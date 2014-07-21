@@ -19,24 +19,40 @@ public class MainActivity extends Activity {
         int screenOrientation = getResources().getConfiguration().orientation;
         if (screenOrientation == Configuration.ORIENTATION_PORTRAIT) {
         	hideAlphaPane();
+        	hideBetaPane();
         	
-        	View omegaPane = findViewById(R.id.foodlist); 
-        	omegaPane.setOnTouchListener(new OnSwipeTouchListener(this) {
+        	View foodListPane = findViewById(R.id.foodlist); 
+        	foodListPane.setOnTouchListener(new OnSwipeTouchListener(this) {
         		@Override
         		public void onSwipeLeft(){
-        			hideAlphaPane();
+        			View alphaPane = findViewById(R.id.sidemenu);
+        			View betaPane = findViewById(R.id.cart);
+        			if (alphaPane.getVisibility() == View.VISIBLE) {
+        				hideAlphaPane();
+        	    	} else if (betaPane.getVisibility() == View.GONE) {
+        	    		showBetaPane();
+        	    	}
+        			
         			super.onSwipeLeft();
         		}
         		
         		@Override
         		public void onSwipeRight(){
-        			showAlphaPane();
+        			View alphaPane = findViewById(R.id.sidemenu);
+        			View betaPane = findViewById(R.id.cart);
+        			if (alphaPane.getVisibility() == View.GONE) {
+        				showAlphaPane();
+        	    	} else if (betaPane.getVisibility() == View.VISIBLE) {
+        	    		hideBetaPane();
+        	    	}
+        			
         			super.onSwipeRight();
         		}
         		
         		@Override
         		public boolean onTouch(View v, MotionEvent event) {
         			hideAlphaPane();
+        			hideBetaPane();
         			return super.onTouch(v, event);
         		}
         		
@@ -55,6 +71,20 @@ public class MainActivity extends Activity {
     	View alphaPane = findViewById(R.id.sidemenu);
     	if (alphaPane.getVisibility() == View.GONE) {
     		alphaPane.setVisibility(View.VISIBLE);
+    	}
+    }
+    
+    private void hideBetaPane() {
+    	View betaPane = findViewById(R.id.cart);
+    	if (betaPane.getVisibility() == View.VISIBLE) {
+    		betaPane.setVisibility(View.GONE);
+    	}		
+    }
+
+    private void showBetaPane() {
+    	View betaPane = findViewById(R.id.cart);
+    	if (betaPane.getVisibility() == View.GONE) {
+    		betaPane.setVisibility(View.VISIBLE);
     	}
     }
 }
