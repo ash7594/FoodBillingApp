@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
         	View foodListPane = findViewById(R.id.foodlist); 
         	foodListPane.setOnTouchListener(new OnSwipeTouchListener(this) {
         		@Override
-        		public void onSwipeLeft() {
+        		public void onSwipeLeft(){
         			View alphaPane = findViewById(R.id.sidemenu);
         			View betaPane = findViewById(R.id.cart);
         			if (alphaPane.getVisibility() == View.VISIBLE) {
@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
         		}
         		
         		@Override
-        		public void onSwipeRight() {
+        		public void onSwipeRight(){
         			View alphaPane = findViewById(R.id.sidemenu);
         			View betaPane = findViewById(R.id.cart);
         			if (alphaPane.getVisibility() == View.GONE) {
@@ -49,8 +49,8 @@ public class MainActivity extends Activity {
         		
         		@Override
         		public boolean onTouch(View v, MotionEvent event) {
-        			hideAlphaPane();
-        			hideBetaPane();
+        			//hideAlphaPane();
+        			//hideBetaPane();
         			return super.onTouch(v, event);
         		}
         		
