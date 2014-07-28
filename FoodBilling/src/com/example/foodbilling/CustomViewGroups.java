@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class CustomViewGroups extends ArrayAdapter<String>{
 	
-	private final Context context;
+	  private final Context context;
 	  private final String[] values;
 
 	  public CustomViewGroups(Context context, String[] values) {
@@ -26,16 +26,8 @@ public class CustomViewGroups extends ArrayAdapter<String>{
 	        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	    View rowView = inflater.inflate(R.layout.custom_list_groups, parent, false);
 	    TextView textView = (TextView) rowView.findViewById(R.id.textView1);
-	    //ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
+	    
 	    textView.setText(values[position]);
-	    // Change the icon for Windows and iPhone
-	    /*String s = values[position];
-	    if (s.startsWith("Windows7") || s.startsWith("iPhone")
-	        || s.startsWith("Solaris")) {
-	      imageView.setImageResource(R.drawable.no);
-	    } else {
-	      imageView.setImageResource(R.drawable.ok);
-	    }*/
 
 	    return rowView;
 	  }

@@ -1,0 +1,7 @@
+package com.example.foodbilling;
+
+import android.widget.ArrayAdapter;
+
+public class CustomViewFood extends ArrayAdapter<String>{
+
+}

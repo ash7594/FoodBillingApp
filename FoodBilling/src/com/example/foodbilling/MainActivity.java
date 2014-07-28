@@ -49,8 +49,8 @@ public class MainActivity extends Activity {
         		
         		@Override
         		public boolean onTouch(View v, MotionEvent event) {
-        			hideAlphaPane();
-        			hideBetaPane();
+        			showAlphaPane();
+        			showBetaPane();
         			return super.onTouch(v, event);
         		}
         		
